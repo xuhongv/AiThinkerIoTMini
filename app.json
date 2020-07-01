@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/me",
+    "pages/add/index/index",
+    "custom-tab-bar/index",
+    "pages/add/ready/index",
+    "pages/add/smartconfig/index",
+    "pages/devices/light/index",
+    "pages/about/aithinker/index",
+    "pages/about/open/index",
+    "pages/about/version/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "cu-custom": "third/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#a9b7b7",
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "resoures/png/homeY.png",
+        "iconPath": "resoures/png/homeN.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "resoures/png/addY.jpg",
+        "iconPath": "resoures/png/addN.jpg",
+        "pagePath": "pages/add/index/index",
+        "text": "添加"
+      },
+      {
+        "selectedIconPath": "resoures/png/myY.png",
+        "iconPath": "resoures/png/myN.png",
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

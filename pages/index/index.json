@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "basics": "/pages/basics/home/home"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

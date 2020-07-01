@@ -1,0 +1,21 @@
+.color-picker-view {
+  padding-top: 50rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.color-picker-slider {
+  position: absolute;
+  background-color: #fff;
+}
+
+.flex {
+  background-color: #fff;
+  padding: 20rpx;
+  align-items: center;
+}
+
+slider {
+  width: 70%;
+}

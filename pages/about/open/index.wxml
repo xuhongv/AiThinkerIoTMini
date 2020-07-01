@@ -1,0 +1,6 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">开源地址</view>
+</cu-custom>
+
+<web-view src="https://www.xuhongv.com/d/17"></web-view>

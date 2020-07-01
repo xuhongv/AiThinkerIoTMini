@@ -1,0 +1,32 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">添加设备</view>
+</cu-custom>
+
+<view style="background-color:white;height:100%">
+	<view class="cu-card dynamic ">
+		<view class="cu-item shadow">
+			<view class="grid flex-sub padding-lr col-3 grid-square" style="padding-top:100rpx">
+				<view class="bg-img only-img" style="background-image:url('https://img.alicdn.com/tfs/TB1nzXJXmf2gK0jSZFPXXXsopXa-774-774.png');">
+				</view>
+			</view>
+			<view class="text-content" style="padding-top:30rpx"> <text class="text-content" space="ensp" style="font-size: 25rpx;color: gray;display:flex;align-items:center;justify-content:center;" >暂不支持5G频段的路由器</text></view>
+		</view>
+	</view>
+
+	<view style="padding:50rpx">
+		<view class="cu-form-group">
+			<view class="title">路由器名字：</view>
+			<input disabled='true' value="{{ssid}}" placeholder="请先连接Wi-Fi网络"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">路由器密码：</view>
+			<input wx:if="{{passwordType}}" bindinput="bindKeyInput" type='password' value="{{password}}" placeholder="在此输入密码"/>
+			<input wx:else  bindinput="bindKeyInput" type='text' value="{{password}}" placeholder="在此输入密码"/>
+			<image src="{{!defaultType?'../../../resoures/png/eye_off.png':'../../../resoures/png/eye_open.png'}}" bindtap="switch_pwd"/>
+		</view>
+	</view>
+	<view class="padding flex flex-direction" style="padding-top:100rpx">
+	  <button class="cu-btn block bg-blue margin-tb-sm lg" bindtap="OnClikStart" disabled="{{disableButton}}">确定</button>
+	</view>
+</view>

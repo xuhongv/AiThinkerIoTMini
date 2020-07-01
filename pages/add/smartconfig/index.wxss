@@ -1,0 +1,10 @@
+/* pages/add/smartconfig/index.wxss */
+
+page{
+  height: 100%;
+}
+
+image{
+  width: 45rpx;
+  height: 45rpx;
+}

@@ -1,0 +1,20 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">确定设备配网模式</view>
+</cu-custom>
+<view style="background-color:white;height:100%">
+	<view class="cu-card dynamic ">
+		<view class="cu-item shadow">
+			<view class="text-content" style="padding-top:100rpx"> <text class="text-content" space="ensp" >   按照使用说明书，操作使设备进去一键配网模式！</text></view>
+			<view class="grid flex-sub padding-lr col-3 grid-square" style="padding-top:100rpx">
+				<view class="bg-img only-img" style="background-image:url('https://img.alicdn.com/tfs/TB1nzXJXmf2gK0jSZFPXXXsopXa-774-774.png');">
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="padding flex flex-direction" style="padding-top:150rpx">
+		<button class="cu-btn bg-blue margin-tb-sm lg" bindtap="OnClikNext">确定</button>
+	</view>
+
+</view>

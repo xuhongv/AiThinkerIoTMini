@@ -1,0 +1,42 @@
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <!-- <view class='action' bindtap="onClickBack">
+      <text class='cuIcon-back'></text> 返回
+    </view> -->
+    <view class='content' style='top:{{StatusBar}}px;'>添加设备</view>
+  </view>
+</view>
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{4}}" wx:key>
+    <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+  </swiper-item>
+</swiper>
+<view class="VerticalBox" style="padding-bottom:80px">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" wx:for="{{list}}" wx:for-item="mainItem" wx:key id="main-{{index}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-green'></text> {{mainItem.name}} </view>
+      </view>
+      <!-- wx:for="{{list}}" wx:key id="main-{{index}}" -->
+      <view class="cu-list menu-avatar" wx:for="{{mainItem.devices}}" wx:key="{{item.id}}" bindtap="onClick">
+        <view class="cu-item ">
+          <view class="cu-avatar radius lg" style="background-image:url({{item.url}});background-color:white"></view>
+          <view class="content">
+            <view class="text-black">
+              <text class="text-cut">{{item.name}}</text>
+            </view>
+            <view class="text-gray text-sm flex">
+              <text class="text-cut">{{item.des}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

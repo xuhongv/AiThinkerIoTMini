@@ -1,0 +1,6 @@
+.button_cancle_oauth {
+  width: 80%;
+  border-radius: 98rpx;
+  color: #999999;
+}
+

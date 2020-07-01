@@ -1,0 +1,11 @@
+<!--miniprogram/custom-tab-bar/index.wxml-->
+
+<view hidden="{{!isShow}}"  class="tab-bar">
+
+  <view class="tab-bar-border"></view>
+  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item {{item.heigher?'add':''}}" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+    <view style="color: {{selected === index || item.heigher ? selectedColor : color}}">{{item.text}}</view>
+  </view>
+  
+</view>

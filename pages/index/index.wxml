@@ -1,0 +1,64 @@
+<scroll-view scroll-y class="scrollPage" style="padding-bottom:80px">
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+	<view class="cu-list menu-avatar">
+		<view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{cloudsDevices}}" wx:key="this"  wx:for-item='itemObj' bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" 
+		data-target="move-box-{{index}}">
+			<view  bindtap="OnClickInto" data-target="{{index}}" class="cu-avatar round lg" style="background-image:url({{itemObj.IconUrl}});"></view>
+			<view class="content">
+        <!--如果设备在线设备名字颜色黑色，否则就灰色-->
+				<view  bindtap="OnClickInto" data-target="{{index}}"  wx:if='{{itemObj.Online}}' style='color:#181818'>{{itemObj.AliasName?itemObj.AliasName:itemObj.DeviceName}}</view>
+				<view  bindtap="OnClickInto" data-target="{{index}}"  wx:else style='color:#C8C8C8'>{{itemObj.AliasName?itemObj.AliasName:itemObj.DeviceName}}</view>
+        <!--如果设备离线则加载不一样的显示状态-->
+				<view bindtap="OnClickInto" data-target="{{index}}" wx:if='{{itemObj.Online}}' class="text-gray text-sm">
+					<text  class="cuIcon-roundcheckfill text-red"></text> 在线
+				</view>
+				<view wx:else class="text-gray text-sm">
+					<text class="cuIcon-roundclosefill text-grep"></text> 离线
+				</view>
+			</view>
+			<!--如果设备离线则不显示箭头-->
+			<view  bindtap="OnClickInto" data-target="{{index}}"  wx:if='{{itemObj.Online}}' class="action">
+				<text class="cuIcon-right text-black"></text>
+			</view>
+			<view class="move">
+				<view data-index='{{index}}' class="bg-grey" bindtap='OnClickReName'>重命名</view>
+				<view data-index='{{index}}' class="bg-red"  bindtap='OnClickDelete'>解绑</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+
+<!-- 重命名弹窗 -->
+<modal hidden="{{hiddenmodalput}}" title="重命名设备" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+  <input type='text' placeholder="在此输入新名字" bindinput='inputNewName' cursor-spacing='100' value='{{newName}}' auto-focus/>
+</modal>
+
+<!-- 加载中弹窗 -->
+<view class='cu-load load-modal' wx:if="{{isShowLoading}}">
+  <image src='../../resoures/png/aithinker.png' class='png' mode='aspectFit'></image>
+  <view class='text-blue'>安信可科技</view>
+</view>
+
+<!-- 授权弹窗 -->
+<view class="cu-modal {{isShowOauth?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">您还未登录</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl">
+			相关操作涉及到用户信息，请登录后再试
+		</view>
+		<view class="cu-bar bg-white">
+			<button class="button_start_oauth" open-type="getUserInfo" bindgetuserinfo="getUserInfo">立即登录</button>
+			<button class="button_cancle_oauth" bindtap="hideModal">暂不登录</button>
+		</view>
+	</view>
+</view>

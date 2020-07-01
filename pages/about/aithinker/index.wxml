@@ -1,0 +1,48 @@
+<view class='cu-custom'>
+	<view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+		<view class='action' bindtap="onClickBack">
+			<text class='cuIcon-back'></text> 返回
+		</view>
+		<view class='content' style='top:{{StatusBar}}px;'></view>
+	</view>
+</view>
+<swiper class="screen-swiper" indicator-dots="false" circular="false" autoplay="false" interval="5000" duration="500">
+	<swiper-item wx:for="1" wx:key>
+		<image src="../../../resoures/png/BasicsBg.png" mode='aspectFill'></image>
+	</swiper-item>
+</swiper>
+
+
+<view class='container'>
+
+  <view class='attribute-container'>
+    <view class='attribute-title'>联系方式</view>
+    <view class='attribute-item'>
+      <view class='attribute-code-container'>
+        <view class='code-circle'></view>
+        <view class='code-name'>公司地址</view>
+        <view class='coder'>深圳市宝安区西乡固戍华丰智慧创新港C栋410</view>
+      </view>
+      <view class='attribute-code-container'>
+        <view class='code-circle'></view>
+        <view class='code-name'>联系电话</view>
+        <view class='coder'>0755-29162996</view>
+      </view>
+      <view>
+        <view class='attribute-code-container'>
+        <view class='code-circle'></view>
+        <view class='code-name'>商务合作</view>
+        <view class='coder'>sales@aithinker.com</view>
+      </view>
+      
+      </view>
+        <view class='attribute-code-container'>
+        <view class='code-circle'></view>
+        <view class='code-name'>技术支持</view>
+        <view class='coder'>support@aithinker.com</view>
+      </view>
+
+    </view>
+  </view>
+</view>
+

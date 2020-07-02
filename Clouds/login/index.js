@@ -14,9 +14,7 @@ class AppDevSdk {
 	}
 
 	async requestAppApi(Action, reqData = {}, options = {}) {
-		
-		console.log("reqData:"+JSON.stringify(reqData))
-
+	
 		const requestOpts = {
 			method: 'POST',
 			url: 'https://iot.cloud.tencent.com/api/exploreropen/appapi',
@@ -80,14 +78,17 @@ class AppDevSdk {
 
 cloud.init();
 
-const sdk = new AppDevSdk({
-	// 物联网开发平台 - 应用开发中申请的AppKey及AppSecret
-	AppKey: 'mvdSxKJeAZUDKQerD', // 向军 mrlTtwMOjLbkKpRan ； 徐宏 mvdSxKJeAZUDKQerD  陈聪 mSuiyhEeFuEPdvCRj
-	AppSecret: 'dzrXdGvDDywKROWsVXmF',// 向军 QeqqoiWqqqqSNhCTQPMJ ； 徐宏 dzrXdGvDDywKROWsVXmF 陈聪 LJmnNiqmExAFAiblPLvw
-});
 
 // 云函数入口函数
-exports.main = async ({ userInfo }, context) => {
+exports.main = async ({ userInfo , AppKey , AppSecret}, context) => {
+
+	const sdk = new AppDevSdk({
+		// 物联网开发平台 - 应用开发中申请的AppKey及AppSecret 
+		AppKey,
+		AppSecret
+	});
+
+
 	try {
 		const { errCode, errMsg, data, cloudID } = userInfo;
 		if (errCode) {

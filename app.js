@@ -3,22 +3,13 @@ const QcloudIotModel = require('./third/lib/model.min');
 
 const MiniConfig = {
   isDebug: false,
-  appKey: 'mvdSxKJeAZUDKQerD'
+  ProductId: '', //FRAFS6OMDH
+  // 物联网开发平台 - 应用开发中申请的微信小程序的AppKey及AppSecret
+  appKey: 'mvdSxKJeAZUDKQerD',// 向军 mrlTtwMOjLbkKpRan ； 徐宏 mvdSxKJeAZUDKQerD  陈聪 mSuiyhEeFuEPdvCRj
+	appSecret: 'dzrXdGvDDywKROWsVXmF',// 向军 QeqqoiWqqqqSNhCTQPMJ ； 徐宏 dzrXdGvDDywKROWsVXmF 陈聪 LJmnNiqmExAFAiblPLvw
 }
 App({
   onLaunch: function () {
-    let that = this
-    //隐藏系统tabbar
-    // wx.getSystemInfo({
-    //   success: e => {
-    //     this.globalData.StatusBar = e.statusBarHeight;
-    //     let custom = wx.getMenuButtonBoundingClientRect();
-    //     this.globalData.Custom = custom;
-    //     this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
-    //   }
-    // })
-
-
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;
@@ -31,7 +22,6 @@ App({
         }
       }
     })
-
     wx.cloud.init({
       // 选择您云开发环境的环境id
       traceUser: true,

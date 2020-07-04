@@ -1,7 +1,6 @@
 
 <p align="center">
-    <img
-      class="QR-img" style="width: 300px; height: 300px;" src="https://docs.ai-thinker.com/_media/esp8266/docs/gh_b486321d51a4_860.jpg">
+    <img class="QR-img" style="width:300px; height:300px;" src="https://docs.ai-thinker.com/_media/esp8266/docs/gh_b486321d51a4_860.jpg">
 </p>
 
 <div align="center"> <span class="logo" > 安信可IoT小程序 </span> </div>

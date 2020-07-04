@@ -1,34 +1,32 @@
 
 <p align="center">
-    <img class="QR-img" style="width:300px; height:300px;" src="https://docs.ai-thinker.com/_media/esp8266/docs/gh_b486321d51a4_860.jpg">
+    <img class="QR-img" src="https://docs.ai-thinker.com/_media/esp8266/docs/gh_b486321d51a4_860.jpg">
 </p>
 
 <div align="center"> <span class="logo" > 安信可IoT小程序 </span> </div>
 
 <div class="row" />
 <div align="center">
-  <span class="desc" >让微信小程序也可以smartconfig配网/绑定/控制设备</span> 
+  <span class="desc" >微信小程序一站式smartconfig配网/绑定/控制设备</span> 
 </div>
 
 
 ## 维护日志，版本修订；
 
-|修改时间|更新日志|
-|----|----|
-|2019.5.17|初次拟稿，完成配网，暂不开放|
-|2019.11.30|首次开源|
-|2019.12.4|去除全局配置文件，增加对外使用文档|
+|版本|修改时间|更新日志|
+|----|----|----|
+|V2.0|2020.7.4|初次发布|
 
 ## 一、简介
 
 安信可IoT小程序  是基于 **腾讯物联开发平台** 实现端到端的用户配网/绑定/控制ESP8266的开源仓库，致力开源国内互联网。
 
-周所周知，目前市面上很多都是基于原生app做的配网，而在小程序实现和开源是极少的。
+周所周知，目前市面上很多都是基于原生app做的配网，而在小程序实现和开源是极少的。而我们与
 
 
-## 二、如何集成
+## 二、使用
 
-- 1.首先把 《blufi》 这个配网核心库所需文件夹放在你的工程里面；
+- 1.首先登录腾讯物联开发平台 ```https://cloud.tencent.com/product/iotexplorer``` 注册认证账号，新建一个产品
 - 2.为了方便，直接把 《images》下面的图片复制到自己到工程里面，以及把界面《bleConnect》也复制到自己到工程里面去；
 - 3.蓝牙搜索附近设备展示列表，自行处理；最后要传给界面《bleConnect》到参数只有四个：
 
@@ -70,7 +68,7 @@ wx.navigateTo({
      }
 ```
 
-## 三、本人开源 微信物联网控制 一览表
+## 三、安信可开源团队-- 开源微信物联网控制 一览表
 
 |开源项目|地址|开源时间|
 |----|----|----|
@@ -83,23 +81,4 @@ wx.navigateTo({
 |可商用的事件分发的微信小程序mqtt断线重连框架|https://blog.csdn.net/xh870189248/article/details/88718302|2019.2|
 |微信小程序以 websocket 连接阿里云IOT物联网平台mqtt服务器|https://blog.csdn.net/xh870189248/article/details/91490697|2019.6|
 |微信公众号网页实现连接mqtt服务器|https://blog.csdn.net/xh870189248/article/details/100738444|2019.9|
-
-
-## 四、讨论交流
-
-
-<table>
-  <tbody>
-    <tr >
-      <td align="center" valign="middle" style="border-style:none">
-       <img class="QR-img" height="260" width="260" src="http://qinniu.xuhongv.com/qq.png">
-        <p style="font-size:12px;">QQ群号：434878850</p>
-      </td>
-      <td align="center" valign="middle" style="border-style:none">
-        <img class="QR-img" height="260" width="260"  src="http://qinniu.xuhongv.com/1574863773.png">
-        <p style="font-size:12px;">微信公众号：徐宏blog</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
 

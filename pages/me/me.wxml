@@ -1,5 +1,5 @@
 <scroll-view scroll-y class="scrollPage">
-	<view class="UCenter-bg" style="background-image:url('https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/officialwebsite/banner/banner1.jpg');">
+	<view class="UCenter-bg" style="background-image:url('https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/officialwebsite/wechatmini_iot/meBg.png');">
 		<view class="userinfo"></view>
 
 		<!-- 用户 openid -->

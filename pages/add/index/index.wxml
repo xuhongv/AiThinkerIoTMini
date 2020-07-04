@@ -8,7 +8,7 @@
 </view>
 <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{4}}" wx:key>
-    <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+    <image src="https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/officialwebsite/wechatmini_iot/new.png" mode='aspectFill'></image>
   </swiper-item>
 </swiper>
 <view class="VerticalBox" style="padding-bottom:80px">

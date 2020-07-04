@@ -34,7 +34,7 @@ Page({
         if (this.data.device.DeviceId === params.data.params.DeviceId) {
           let Payload = JSON.parse(base64.decode(params.data.params.Payload))
           if (Payload.params) this.parseDeviceStatus(Payload.params)
-          
+
         }
         break;
       default:
@@ -95,25 +95,25 @@ Page({
   },
   parseDeviceStatus(data) {
     console.log('设备实时状态推送:', JSON.stringify(data))
-    if (data.power_switch!==undefined) {
+    if (data.power_switch !== undefined) {
       this.setData({
         ValuePower: data.power_switch,
       })
     }
 
-    if (data.ColorTemperature!==undefined) {
+    if (data.ColorTemperature !== undefined) {
       this.setData({
         ValueColorTemperature: data.ColorTemperature,
       })
     }
 
-    if (data.brightness!==undefined) {
+    if (data.brightness !== undefined) {
       this.setData({
         ValueLuminance: data.brightness,
       })
     }
 
-    if (data.Red!==undefined && data.Blue!==undefined && data.Green!==undefined) {
+    if (data.Red !== undefined && data.Blue !== undefined && data.Green !== undefined) {
       let h = util.rgb2hsl(data.Red, data.Green, data.Blue);
       util.drawSlider(sliderCtx, _this.data.valueWidthOrHerght, _this.data.valueWidthOrHerght, h[0]);
       this.setData({
@@ -149,18 +149,21 @@ Page({
         success(res) {
           // 转换成hsl格式，获取旋转角度
           let h = util.rgb2hsl(res.data[0], res.data[1], res.data[2]);
-          that.setData({
-            pickColor: JSON.stringify({
-              red: res.data[0],
-              green: res.data[1],
-              blue: res.data[2]
+          if (!(res.data[0] == 255 && res.data[1] == 255 && res.data[2] == 255)) {
+            that.setData({
+              pickColor: JSON.stringify({
+                red: res.data[0],
+                green: res.data[1],
+                blue: res.data[2]
+              })
             })
-          })
-          that.controlCommon({
-            Red: res.data[0],
-            Green: res.data[1],
-            Blue: res.data[2],
-          })
+            that.controlCommon({
+              Red: res.data[0],
+              Green: res.data[1],
+              Blue: res.data[2],
+            })
+          }
+
           // 判断是否在圈内
           if (h[1] !== 1.0) {
             return;

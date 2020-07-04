@@ -10,11 +10,11 @@ Page({
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/officialwebsite/banner/banner1.jpg'
+      url: 'https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/officialwebsite/wechatmini_iot/new.png'
     }, {
       id: 1,
       type: 'image',
-      url: 'https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/officialwebsite/banner/ESP-12K.jpg',
+      url: 'https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/officialwebsite/wechatmini_iot/new.png',
     }, {
       id: 2,
       type: 'image',

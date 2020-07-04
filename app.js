@@ -3,10 +3,10 @@ const QcloudIotModel = require('./third/lib/model.min');
 
 const MiniConfig = {
   isDebug: false,
-  ProductId: '', //FRAFS6OMDH
+  ProductId: '', 
   // 物联网开发平台 - 应用开发中申请的微信小程序的AppKey及AppSecret
-  appKey: 'mvdSxKJeAZUDKQerD',// 向军 mrlTtwMOjLbkKpRan ； 徐宏 mvdSxKJeAZUDKQerD  陈聪 mSuiyhEeFuEPdvCRj
-	appSecret: 'dzrXdGvDDywKROWsVXmF',// 向军 QeqqoiWqqqqSNhCTQPMJ ； 徐宏 dzrXdGvDDywKROWsVXmF 陈聪 LJmnNiqmExAFAiblPLvw
+  appKey: '',
+	appSecret: '',
 }
 App({
   onLaunch: function () {

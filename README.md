@@ -37,58 +37,68 @@
 
 [深圳安信可科技](https://www.ai-thinker.com/home)是国内优秀的模组商+方案商，设计高性价比智能联网模块，提供友好的SDK 二次开发接口；提供高性能、高可靠性、高可扩展性的物联网云，可快速接入第三方智能云平台;
 
-
 [腾讯云物联网开发平台（IoT Explorer）](https://cloud.tencent.com/product/iotexplorer)为各行业的设备制造商、方案商及应用开发商提供一站式设备智能化服务。平台提供海量设备连接与管理能力及小程序应用开发能力，并打通腾讯云基础产品及 AI 能力，提升传统行业设备智能化的效率，降低用户的开发运维成本，助力用户业务发展。
-
-
 
 安信可与腾讯物联合作打造基于安信可Wi-Fi ESP8266模块的全套方案，包括从跨平台的微信小程序配网/绑定/控制/分享设备，以及设备端ESP8266 SDK开发开源；
 
 
-## 二、使用
+## 二、开发指导
 
-- 1.首先登录腾讯物联开发平台 ```https://cloud.tencent.com/product/iotexplorer``` 注册认证账号，新建一个产品
-- 2.为了方便，直接把 《images》下面的图片复制到自己到工程里面，以及把界面《bleConnect》也复制到自己到工程里面去；
-- 3.蓝牙搜索附近设备展示列表，自行处理；最后要传给界面《bleConnect》到参数只有四个：
+### 2.1 腾讯物联开发平台配置
 
-|参数|含义|
-|----|----|
-|deviceId|要连接的蓝牙设备的deviceId|
-|ssid|要连接的路由器的名字|
-|password|要连接的路由器的密码|
-|callBackUri|自定义配网回调结果的界面（比如 /pages/index/index ）|
+- 1.首先登录腾讯物联开发平台 ```https://cloud.tencent.com/product/iotexplorer``` 注册认证账号，新建一个产品，然后在自定义属性时候，导入我们提供的产品属性：[esp8266-rgb-light.json](resoures/esp8266-rgb-light.json)
+- 2.再新建一个微信小程序应用以表示自主品牌小程序控制此设备，新建成功之后，拿到 **APP Key**和 **APP Secret** ，最后一步：务必关联当前产品，否则无法正常使用自主品牌小程序实现配网设备！
+- 3.最后一步在**产品开发**-->**设备调试**，新建一个设备，拿到此设备的 **DeviceName/DeviceScrect/ProductID** ，这三个参数，类似阿里云三元组！
 
-- 4.比如这样：
+![newMini](resoures\newMini.png)
 
-```
-wx.navigateTo({
-  url: '/pages/blueConnect/index?deviceId=123456&ssid=TP-xx&password=12345678&callBackUri=/pages/index/index"
-  })
-```
-- 5.其中，当配网不管成功与否，都会带参数跳转到 callBackUri 这个定义的页面；参数名为 ```blufiResult``` 如下：
+### 2.2  微信小程序导入步骤
 
-|参数|含义|
-|----|----|
-|true|配网成功|
-|false|配网失败|
+微信小程序的二次开发，需要有一定的微信小程序开发基础，建议先入门微信小程序开发，在B站/CSDN学院/腾讯课堂学习都是不错的free入门选择之路！
 
-- 6.比如这样处理：
+1. 登录微信公众平台注册一个微信小程序： [https://mp.weixin.qq.com/cgi-bin/loginpage](https://mp.weixin.qq.com/cgi-bin/loginpage) ，根据自己的平台下载开发工具：[开发者下载页面](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+2. 此外，本仓库还涉及到小程序云开发，已为您写好云函数，只需要把云函数 **Clouds\login** 全部部署到小程序云即可轻松调用！
 
-```
-    //生命周期函数--监听页面加载 
-    onLoad: function (options) {
-        var that = this;
-        if (options.blufiResult){
-          var result = options.blufiResult === 'ok' ? "配网成功" : "配网失败";
-          wx.showToast({
-            title: result,
-            icon: 'none',
-            duration: 2000
-          });
-        }
-     }
+此外，还需要修改一些配置信息，请在 app.js 修换为您的！
+
+```javascript
+const MiniConfig = {
+  //调试模式，打开之后显示底层log
+  isDebug: false,
+  //产品ID`
+  roductId: '',
+  // 物联网开发平台 - 应用开发中申请的微信小程序的AppKey及AppSecret`
+  appKey: '',`
+  appSecret: '',
+}
 ```
 
+小程序源码重要目录说明：
+
+```
+
+├─Clouds 小程序云函数根目录
+│ ├─login  云函数login
+├─custom-tab-bar 自定义底部 tarbar
+├─pages 页面
+│ ├─about 关于
+│ ├─add 添加设备
+│ │ ├─index 设备选择
+│ │ ├─ready 设备确认
+│ │ ├─smartconfig 配网
+│ ├─basics 基础控件
+│ │ ├─avatar 
+│ │ └─ ... 更多UI控件目录
+│ ├─devices 设备控制界面
+│ │ ├─light 灯具控制界面
+│ ├─index 程序入口界面，也是设备列表界面
+│ ├─me 我的
+├─resoures 资源静态文件夹
+├─third 第三方SDK
+│ ├─colorui 七彩控制UI库
+│ ├─common 一些算法库
+│ └─lib 安信可&&腾讯云SDK
+```
 ## 三、安信可开源团队-- 开源微信物联网控制 一览表
 
 |开源项目|地址|开源时间|

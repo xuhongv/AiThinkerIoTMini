@@ -17,13 +17,10 @@
 |----|----|----|
 |V2.0|2020.7.4|初次发布|
 
-
-
 # 目录
 
 - [一、简介](#Introduction)  
-- [1.目的](#aim)  
-- [2.硬件准备](#hardwareprepare)  
+- [二.开发指导](#guide)  
 - [3.阿里云平台准备](#aliyunprepare)  
 - [4.环境搭建](#compileprepare)  
 - [5.SDK 准备](#sdkprepare)  
@@ -42,7 +39,7 @@
 安信可与腾讯物联合作打造基于安信可Wi-Fi ESP8266模块的全套方案，包括从跨平台的微信小程序配网/绑定/控制/分享设备，以及设备端ESP8266 SDK开发开源；
 
 
-## 二、开发指导
+## <span id = "guide">二、开发指导</span>
 
 ### 2.1 腾讯物联开发平台配置
 
@@ -50,7 +47,7 @@
 - 2.再新建一个微信小程序应用以表示自主品牌小程序控制此设备，新建成功之后，拿到 **APP Key**和 **APP Secret** ，最后一步：务必关联当前产品，否则无法正常使用自主品牌小程序实现配网设备！
 - 3.最后一步在**产品开发**-->**设备调试**，新建一个设备，拿到此设备的 **DeviceName/DeviceScrect/ProductID** ，这三个参数，类似阿里云三元组！
 
-![newMini](resoures\newMini.png)
+![newMini](./resoures/newMini.png)
 
 ### 2.2  微信小程序导入步骤
 
@@ -68,8 +65,8 @@ const MiniConfig = {
   //产品ID`
   roductId: '',
   // 物联网开发平台 - 应用开发中申请的微信小程序的AppKey及AppSecret`
-  appKey: '',`
-  appSecret: '',
+  appKey: '',
+  appSecret: ''
 }
 ```
 
@@ -99,7 +96,37 @@ const MiniConfig = {
 │ ├─common 一些算法库
 │ └─lib 安信可&&腾讯云SDK
 ```
-## 三、安信可开源团队-- 开源微信物联网控制 一览表
+# 三、设备开发
+
+购买安信可ESP8266-12S/12F模块，初次入门最好购买一块开发板：[https://anxinke.taobao.com](https://anxinke.taobao.com/) 
+
+设备固件或代码下载：[https://github.com/Ai-Thinker-Open/Ai-Thinker-Open-qcloud-esp-wifi](https://github.com/Ai-Thinker-Open/Ai-Thinker-Open-qcloud-esp-wifi)
+
+## 3.1 AT直连对接
+
+此方案针对的是部分客户已有MCU的情况下，通过AT指令直连腾讯云开发平台，实现在小程序配网/绑定/控制/分享的功能；
+
+- 自行烧录：安信可ESP-12S模组烧录腾讯云AT固件方法：
+- 直接选购已烧录好的腾讯云AT固件安信可ESP-12S模组：[https://item.taobao.com/item.htm?id=543467904788](https://item.taobao.com/item.htm?id=543467904788)
+
+另外，我们还准备了模拟MCU的可视化window集成工具：[https://axk.coding.net/s/98cbbda6-ff1e-4c38-819d-325bce81bacc](https://axk.coding.net/s/98cbbda6-ff1e-4c38-819d-325bce81bacc)
+
+对应的使用文档：[https://aithinker.blog.csdn.net/article/details/107139923](https://aithinker.blog.csdn.net/article/details/107139923)
+
+## 3.2 SDK二次开发
+
+如果您熟悉 ESP 开发环境，可以很顺利理解下面步骤; 如果您不熟悉某个部分，比如编译，烧录，需要您结合官方的相关文档来理解。如您需阅读 [ESP-IDF 编程指南](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/index.html)文档等。建议基于**Linux(ubuntu)**环境进行开发，关于ESP8266开发的基础知识，请参考其 [开发指南](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/linux-setup.html)
+
+在当前目录下获取ESP8266 RTOS SDK 3.1
+```
+git clone --single-branch -b release/v3.1 https://github.com/espressif/ESP8266_RTOS_SDK.git
+```
+
+然后，编译 [qcloud-iot-esp8266-demo](https://github.com/Ai-Thinker-Open/Ai-Thinker-Open-qcloud-esp-wifi/tree/master/qcloud-iot-esp8266-demo) 这个工程，步骤详情见其下的 README 文件！
+
+--------------------------
+
+## 四、安信可开源团队-- 开源微信物联网控制 一览表
 
 |开源项目|地址|开源时间|
 |----|----|----|
